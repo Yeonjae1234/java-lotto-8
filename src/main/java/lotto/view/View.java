@@ -19,7 +19,9 @@ public class View {
         try{
             System.out.println(PURCHASE_AMOUNT_INPUT_MESSAGE);
             String userInput = readLine();
-            return validator.CheckInteger(userInput);
+            int result = validator.checkInteger(userInput);
+            result = validator.checkPositive(result);
+            return result;
         }catch (IllegalArgumentException e){
             System.out.println(e.getMessage());
             return inputPurchaseAmonut();
