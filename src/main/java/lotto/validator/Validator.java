@@ -7,8 +7,7 @@ public class Validator {
 
     public int checkInteger(String userInput){
         try{
-            int result = Integer.parseInt(userInput);
-            return result;
+            return Integer.parseInt(userInput);
         }catch (NumberFormatException e){
             throw new IllegalArgumentException(INTEGER_ERROR_MESSAGE);
         }

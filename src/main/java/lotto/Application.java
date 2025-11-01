@@ -8,7 +8,7 @@ public class Application {
         // TODO: 프로그램 구현
 
         View view = new View(new Validator());
-        int a = view.inputPurchaseAmonut();
-
+        Controller controller = new Controller(view);
+        controller.makePurchaseAmount();
     }
 }
