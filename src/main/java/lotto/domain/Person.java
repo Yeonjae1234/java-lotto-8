@@ -1,5 +1,6 @@
 package lotto.domain;
 
+import lotto.service.ReturnRateCalculator;
 import lotto.service.WinningChecker;
 
 import java.util.List;
@@ -18,5 +19,7 @@ public class Person {
         return winningChecker.checkTotalResult(lottoList,winningNumbers);
     }
 
-
+    public double calculateReturnRate(Map<Rank, Integer> totalResult, ReturnRateCalculator returnRateCalculator) {
+        return purchaseAmount.calculateReturnRate(totalResult, returnRateCalculator);
+    }
 }

@@ -1,9 +1,8 @@
 package lotto;
 
-import lotto.domain.Lotto;
-import lotto.domain.PurchaseAmount;
-import lotto.domain.Rank;
-import lotto.domain.WinningNumbers;
+import lotto.domain.*;
+import lotto.service.ReturnRateCalculator;
+import lotto.service.WinningChecker;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -49,6 +48,18 @@ public class DomainTest {
             Lotto userLotto = new Lotto(List.of(1, 2, 3, 4, 5, 7));
             Rank result = winningNumbers.countMatchNumbers(userLotto);
             assertThat(result).isEqualTo(Rank.SECOND);
+        });
+    }
+
+    @Test
+    public void person_calculateReturnRate(){
+        assertSimpleTest(()->{
+            PurchaseAmount purchaseAmount = new PurchaseAmount(8000);
+            Person person = new Person(null, purchaseAmount);
+            WinningChecker winningChecker = new WinningChecker();
+            winningChecker.totalResult.put(Rank.FIFTH, 1);
+            double v = person.calculateReturnRate(winningChecker.totalResult, new ReturnRateCalculator());
+            assertThat(v).isEqualTo(0.625);
         });
     }
 

@@ -7,8 +7,8 @@ import java.util.ArrayList;
 
 public class LottoListGenerator {
 
-    public ArrayList<Lotto> generateLottoList(int purchaseAmount, int MONEY_UNIT, LottoGenerator lottoGenerator) {
-        int lottoCount = purchaseAmount / MONEY_UNIT;
+    public ArrayList<Lotto> generateLottoList(long purchaseAmount, int MONEY_UNIT, LottoGenerator lottoGenerator) {
+        long lottoCount = purchaseAmount / MONEY_UNIT;
         ArrayList<Lotto> lottos = new ArrayList<>();
         for (int i = 0; i < lottoCount; i++) {
             lottos.add(lottoGenerator.generateLotto());

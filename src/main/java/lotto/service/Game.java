@@ -24,5 +24,6 @@ public class Game {
         ArrayList<Lotto> lottoList = purchaseAmount.generateLottoList(lottoListGenerator, lottoGenerator);
         Person person = new Person(lottoList, purchaseAmount);
         Map<Rank,Integer> totalResult = person.checkTotalResult(winningChecker, winningNumbers);
+        double returnRate = person.calculateReturnRate(totalResult, new ReturnRateCalculator());
     }
 }
