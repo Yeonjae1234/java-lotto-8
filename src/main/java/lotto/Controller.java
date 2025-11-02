@@ -14,6 +14,11 @@ public class Controller {
         this.view = view;
     }
 
+    public void run(){
+        PurchaseAmount purchaseAmount = makePurchaseAmount();
+        WinningNumbers winningNumbers = makeBonusNumber(makeWinningNumbers());
+    }
+
     public PurchaseAmount makePurchaseAmount() {
         try {
             return new PurchaseAmount(view.inputPurchaseAmonut());

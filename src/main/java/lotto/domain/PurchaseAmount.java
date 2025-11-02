@@ -1,5 +1,10 @@
 package lotto.domain;
 
+import lotto.service.LottoGenerator;
+import lotto.service.LottoListGenerator;
+
+import java.util.ArrayList;
+
 public class PurchaseAmount {
 
     public static final int MONEY_UNIT = 1000;
@@ -16,6 +21,11 @@ public class PurchaseAmount {
         if (money % MONEY_UNIT != 0) {
             throw new IllegalArgumentException(MONEY_UNIT_ERROR_MESSAGE);
         }
+    }
+
+    public ArrayList<Lotto> generateLottoList(LottoListGenerator lottoListGenerator) {
+       // lottoListGenerator.generateLottoList(money, MONEY_UNIT);
+        return null;
     }
 
 }
