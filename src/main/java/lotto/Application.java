@@ -1,5 +1,7 @@
 package lotto;
 
+import camp.nextstep.edu.missionutils.Randoms;
+import lotto.domain.WinningNumbers;
 import lotto.validator.Validator;
 import lotto.view.View;
 
@@ -9,6 +11,6 @@ public class Application {
 
         View view = new View(new Validator());
         Controller controller = new Controller(view);
-        controller.makePurchaseAmount();
+        WinningNumbers winningNumbers = controller.makeWinningNumbers();
     }
 }
