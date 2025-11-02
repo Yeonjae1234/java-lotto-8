@@ -16,7 +16,6 @@ public class Application {
 //        Lotto winningLotto = controller.makeWinningNumbers();
 //        WinningNumbers winningNumbers = controller.makeBonusNumber(winningLotto);
        // Rank[] totalRank = Rank.values();
-        Rank.FIRST.plusCount();
         Rank[] totalRank;
 
     }
