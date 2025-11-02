@@ -1,6 +1,9 @@
 package lotto.domain;
 
+import lotto.service.WinningChecker;
+
 import java.util.List;
+import java.util.Map;
 
 public class Person {
     private List<Lotto> lottoList;
@@ -11,6 +14,9 @@ public class Person {
         this.purchaseAmount = purchaseAmount;
     }
 
+    public Map<Rank, Integer> checkTotalResult(WinningChecker winningChecker, WinningNumbers winningNumbers){
+        return winningChecker.checkTotalResult(lottoList,winningNumbers);
+    }
 
 
 }
