@@ -1,7 +1,11 @@
 package lotto.service;
 
+import lotto.domain.Lotto;
+import lotto.domain.Person;
 import lotto.domain.PurchaseAmount;
 import lotto.domain.WinningNumbers;
+
+import java.util.ArrayList;
 
 public class Game {
     private WinningNumbers winningNumbers;
@@ -17,6 +21,8 @@ public class Game {
     }
 
     public void runGame(){
-        purchaseAmount.generateLottoList(lottoListGenerator,lottoGenerator);
+        ArrayList<Lotto> lottoList = purchaseAmount.generateLottoList(lottoListGenerator, lottoGenerator);
+        Person person = new Person(lottoList, purchaseAmount);
+
     }
 }
