@@ -23,13 +23,23 @@ public class Controller {
         }
     }
 
-    public WinningNumbers makeWinningNumbers(){
+    public Lotto makeWinningNumbers(){
         try {
             ArrayList<Integer> numbers = view.inputWinningNumbers();
-            return new WinningNumbers(new Lotto(numbers));
+            return new Lotto(numbers);
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
             return makeWinningNumbers();
+        }
+    }
+
+    public WinningNumbers makeBonusNumber(Lotto winningLotto){
+        try {
+            int bonusNumber = view.inputBonusNumber();
+            return new WinningNumbers(winningLotto, bonusNumber);
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+            return makeBonusNumber(winningLotto);
         }
     }
 

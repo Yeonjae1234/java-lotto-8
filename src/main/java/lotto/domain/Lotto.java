@@ -23,5 +23,9 @@ public class Lotto {
         validator.checkDuplication(numbers);
     }
 
+    public void bonusNumberValidate(Validator validator, int bonusNumber) {
+        validator.checkBonusNumberDuplication(numbers,bonusNumber);
+    }
+
     // TODO: 추가 기능 구현
 }
