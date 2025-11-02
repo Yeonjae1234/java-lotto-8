@@ -19,4 +19,11 @@ public class WinningNumbers {
         Validator validator = new Validator();
         winningLotto.bonusNumberValidate(validator,bonusNumber);
     }
+
+    public Rank countMatchNumbers(Lotto lotto) {
+
+        int count = lotto.countMatchNumbers(winningLotto);
+        boolean bonusMatch = lotto.matchBonusNumber(bonusNumber);
+        return Rank.valueOf(count,bonusMatch);
+    }
 }

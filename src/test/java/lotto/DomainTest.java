@@ -3,6 +3,7 @@ package lotto;
 import lotto.domain.Lotto;
 import lotto.domain.PurchaseAmount;
 import lotto.domain.Rank;
+import lotto.domain.WinningNumbers;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -37,6 +38,18 @@ public class DomainTest {
             assertThat(Rank.valueOf(5, false)).isEqualTo(Rank.THIRD);
         });
 
+    }
+
+    @DisplayName("WinningNumber와 Lotto로 결과 확인하기")
+    @Test
+    public void winningNumbers_SECOND(){
+        assertSimpleTest(()->{
+            Lotto winningLotto = new Lotto(List.of(1, 2, 3, 4, 5, 6));
+            WinningNumbers winningNumbers = new WinningNumbers(winningLotto,7);
+            Lotto userLotto = new Lotto(List.of(1, 2, 3, 4, 5, 7));
+            Rank result = winningNumbers.countMatchNumbers(userLotto);
+            assertThat(result).isEqualTo(Rank.SECOND);
+        });
     }
 
 }
