@@ -2,6 +2,7 @@ package lotto.domain;
 
 import lotto.validator.Validator;
 
+import java.util.Collections;
 import java.util.List;
 
 public class Lotto {
@@ -10,6 +11,7 @@ public class Lotto {
     public Lotto(List<Integer> numbers) {
         Validator validator = new Validator();
         validate(numbers,validator);
+        Collections.sort(numbers);
         this.numbers = numbers;
     }
 
