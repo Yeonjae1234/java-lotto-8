@@ -23,9 +23,8 @@ public class PurchaseAmount {
         }
     }
 
-    public ArrayList<Lotto> generateLottoList(LottoListGenerator lottoListGenerator) {
-       // lottoListGenerator.generateLottoList(money, MONEY_UNIT);
-        return null;
+    public ArrayList<Lotto> generateLottoList(LottoListGenerator lottoListGenerator, LottoGenerator lottoGenerator) {
+        return lottoListGenerator.generateLottoList(money, MONEY_UNIT,lottoGenerator);
     }
 
 }
