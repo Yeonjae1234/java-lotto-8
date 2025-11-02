@@ -10,4 +10,7 @@ public class Person {
         this.lottoList = lottoList;
         this.purchaseAmount = purchaseAmount;
     }
+
+
+
 }

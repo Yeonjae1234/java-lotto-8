@@ -1,10 +1,13 @@
 package lotto;
 
+import lotto.domain.Lotto;
 import lotto.domain.PurchaseAmount;
 import lotto.service.LottoGenerator;
 import lotto.service.LottoListGenerator;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+
+import java.util.List;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -27,8 +30,8 @@ public class ServiceTest {
     public void purchaseAmount_generateLottoList(){
         assertSimpleTest(()->{
             PurchaseAmount purchaseAmount = new PurchaseAmount(8000);
-            assertThat(purchaseAmount.generateLottoList(lottoListGenerator, lottoGenerator))
-                    .hasSize(8);
+            List<Lotto> lottos = purchaseAmount.generateLottoList(lottoListGenerator, lottoGenerator);
+            assertThat(lottos).hasSize(8);
         });
 
     }
