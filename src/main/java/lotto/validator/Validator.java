@@ -15,16 +15,16 @@ public class Validator {
     public static final String BONUS_NUMBER_DUPLICATE_ERROR_MESSAGE = "[ERROR] 보너스 번호가 당첨 번호와 중복됩니다.";
 
 
-    public int checkInteger(String userInput){
-        try{
+    public int checkInteger(String userInput) {
+        try {
             return Integer.parseInt(userInput);
-        }catch (NumberFormatException e){
+        } catch (NumberFormatException e) {
             throw new IllegalArgumentException(INTEGER_ERROR_MESSAGE);
         }
     }
 
     public void checkPositive(int userInput) {
-        if(userInput<=0){
+        if (userInput <= 0) {
             throw new IllegalArgumentException(POSITIVE_ERROR_MESSAGE);
         }
     }
@@ -43,7 +43,7 @@ public class Validator {
     }
 
     public void checkLottoNumber(int lottoNumber) {
-        if(lottoNumber<1||lottoNumber>45){
+        if (lottoNumber < 1 || lottoNumber > 45) {
             throw new IllegalArgumentException(LOTTO_NUMBER_RANGE_ERROR_MESSAGE);
         }
     }
@@ -60,5 +60,4 @@ public class Validator {
             throw new IllegalArgumentException(BONUS_NUMBER_DUPLICATE_ERROR_MESSAGE);
         }
     }
-
 }

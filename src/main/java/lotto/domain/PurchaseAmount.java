@@ -26,10 +26,10 @@ public class PurchaseAmount {
     }
 
     public List<Lotto> generateLottoList(LottoListGenerator lottoListGenerator, LottoGenerator lottoGenerator) {
-        return lottoListGenerator.generateLottoList(money, MONEY_UNIT,lottoGenerator);
+        return lottoListGenerator.generateLottoList(money, MONEY_UNIT, lottoGenerator);
     }
 
-    public double calculateReturnRate(Map<Rank,Integer> totalResult, ReturnRateCalculator returnRateCalculator){
+    public double calculateReturnRate(Map<Rank, Integer> totalResult, ReturnRateCalculator returnRateCalculator) {
         return returnRateCalculator.calculateReturnRate(totalResult, money);
     }
 

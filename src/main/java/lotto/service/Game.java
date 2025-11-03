@@ -14,13 +14,13 @@ public class Game {
         this.person = person;
     }
 
-    public void runGame(WinningChecker winningChecker){
-        Map<Rank,Integer> rankCount = person.checkTotalResult(winningChecker, winningNumbers);
+    public void runGame(WinningChecker winningChecker) {
+        Map<Rank, Integer> rankCount = person.checkTotalResult(winningChecker, winningNumbers);
         double returnRate = person.calculateReturnRate(rankCount, new ReturnRateCalculator());
         totalResult = new TotalResult(rankCount, returnRate);
     }
 
-    public TotalResultSnapshot makeSnapshot(){
+    public TotalResultSnapshot makeSnapshot() {
         return totalResult.makeSnapshot();
     }
 }

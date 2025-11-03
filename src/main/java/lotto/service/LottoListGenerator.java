@@ -1,7 +1,6 @@
 package lotto.service;
 
 import lotto.domain.Lotto;
-import lotto.domain.PurchaseAmount;
 
 import java.util.ArrayList;
 import java.util.List;

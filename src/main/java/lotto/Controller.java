@@ -25,12 +25,12 @@ public class Controller {
         this.winningChecker = winningChecker;
     }
 
-    public void run(){
+    public void run() {
         PurchaseAmount purchaseAmount = makePurchaseAmount();
-        Person person = new Person(purchaseAmount,lottoListGenerator,lottoGenerator);
+        Person person = new Person(purchaseAmount, lottoListGenerator, lottoGenerator);
         view.printLottoList(person.makeLottoListDTO());
         WinningNumbers winningNumbers = makeBonusNumber(makeWinningNumbers());
-        Game game = new Game(person,winningNumbers);
+        Game game = new Game(person, winningNumbers);
         game.runGame(winningChecker);
         view.printTotalResult(game.makeSnapshot());
     }
@@ -44,7 +44,7 @@ public class Controller {
         }
     }
 
-    public Lotto makeWinningNumbers(){
+    public Lotto makeWinningNumbers() {
         try {
             ArrayList<Integer> numbers = view.inputWinningNumbers();
             return new Lotto(numbers);
@@ -54,7 +54,7 @@ public class Controller {
         }
     }
 
-    public WinningNumbers makeBonusNumber(Lotto winningLotto){
+    public WinningNumbers makeBonusNumber(Lotto winningLotto) {
         try {
             int bonusNumber = view.inputBonusNumber();
             return new WinningNumbers(winningLotto, bonusNumber);
@@ -63,5 +63,4 @@ public class Controller {
             return makeBonusNumber(winningLotto);
         }
     }
-
 }

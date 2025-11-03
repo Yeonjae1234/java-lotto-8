@@ -9,27 +9,25 @@ import java.util.List;
 import java.util.Map;
 
 public class WinningChecker {
-    public Map<Rank,Integer> totalResult;
+    public Map<Rank, Integer> totalResult;
 
-    public WinningChecker(){
+    public WinningChecker() {
         totalResult = new EnumMap<>(Rank.class);
         for (Rank r : Rank.values()) {
             totalResult.put(r, 0);
         }
     }
 
-    public Map<Rank,Integer> checkTotalResult(List<Lotto> lottos, WinningNumbers winningNumbers) {
+    public Map<Rank, Integer> checkTotalResult(List<Lotto> lottos, WinningNumbers winningNumbers) {
         for (Lotto lotto : lottos) {
-            findRank(lotto,winningNumbers);
+            findRank(lotto, winningNumbers);
         }
         return totalResult;
     }
 
-    public void findRank(Lotto lotto, WinningNumbers winningNumbers){
+    public void findRank(Lotto lotto, WinningNumbers winningNumbers) {
         Rank resultRank = winningNumbers.countMatchNumbers(lotto);
-        if(resultRank==null) return;
+        if (resultRank == null) return;
         totalResult.put(resultRank, totalResult.get(resultRank) + 1);
     }
-
-
 }

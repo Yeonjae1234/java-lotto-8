@@ -18,15 +18,15 @@ public class Person {
         this.lottoList = purchaseAmount.generateLottoList(lottoListGenerator, lottoGenerator);
     }
 
-    public Map<Rank, Integer> checkTotalResult(WinningChecker winningChecker, WinningNumbers winningNumbers){
-        return winningChecker.checkTotalResult(lottoList,winningNumbers);
+    public Map<Rank, Integer> checkTotalResult(WinningChecker winningChecker, WinningNumbers winningNumbers) {
+        return winningChecker.checkTotalResult(lottoList, winningNumbers);
     }
 
     public double calculateReturnRate(Map<Rank, Integer> totalResult, ReturnRateCalculator returnRateCalculator) {
         return purchaseAmount.calculateReturnRate(totalResult, returnRateCalculator);
     }
 
-    public LottoListDTO makeLottoListDTO(){
+    public LottoListDTO makeLottoListDTO() {
         List<LottoSnapshot> item = new ArrayList<>();
         for (Lotto lotto : lottoList) {
             item.add(lotto.makeLottoSnapshot());
