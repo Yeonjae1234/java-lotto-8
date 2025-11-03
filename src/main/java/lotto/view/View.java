@@ -13,9 +13,10 @@ import static camp.nextstep.edu.missionutils.Console.readLine;
 public class View {
 
     public static final String PURCHASE_AMOUNT_INPUT_MESSAGE = "구입금액을 입력해 주세요.";
-    public static final String WINNING_NUMBERS_INPUT_MESSAGE = "당첨 번호를 입력해 주세요.";
-    public static final String BONUS_NUMBER_INPUT_MESSAGE = "보너스 번호를 입력해 주세요.";
+    public static final String WINNING_NUMBERS_INPUT_MESSAGE = "\n당첨 번호를 입력해 주세요.";
+    public static final String BONUS_NUMBER_INPUT_MESSAGE = "\n보너스 번호를 입력해 주세요.";
     public static final String LOTTO_COUNT_PRINT_MESSAGE = "개를 구매했습니다.";
+    public static final String RESULT_PRINT_HEADER = "\n당첨 통계\n---";
     public static final String RANK_PRINT_FORMAT = "%s - %d개%n";
     public static final String RETURN_RATE_PRINT_FORMAT = "총 수익률은 %.1f%%입니다.";
 
@@ -68,13 +69,14 @@ public class View {
 
     public void printLottoList(LottoListDTO lottoListDTO){
         var lottos = lottoListDTO.lottoList();
-        System.out.println(lottos.size()+LOTTO_COUNT_PRINT_MESSAGE);
+        System.out.println("\n"+lottos.size()+LOTTO_COUNT_PRINT_MESSAGE);
         for (var lotto : lottos) {
             System.out.println(lotto.numbers());
         }
     }
 
     public void printTotalResult(TotalResultSnapshot totalResultSnapshot) {
+        System.out.println(RESULT_PRINT_HEADER);
         Map<Rank, Integer> rankMap = totalResultSnapshot.totalResult();
         double v = totalResultSnapshot.returnRate();
         printRankCount(rankMap);
