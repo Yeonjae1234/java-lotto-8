@@ -158,6 +158,14 @@
 - 당첨 결과를 확인한다.
 - 수익률을 계산한다.
 
+### 5) (Enum) Rank
+
+1등부터 5등까지의 당첨 조건, 상금에 대한 정보를 저장하고 있다.
+
+### 6) TotalResult
+
+등수 별 당첨된 로또의 개수, 수익률을 저장하고 있다.
+
 ---
 
 ## 2. Service
@@ -177,10 +185,9 @@
 
 - 당첨 결과와 구입 금액을 바탕으로 수익률을 계산한다.
 
-### 4) LottoGenerator(Interface)
+### 4) LottoGenerator
 
-- 로또 생성 전략에 대한 인터페이스
-- 실제 구현과 테스트를 위해 랜덤 생성, 직접 생성 2가지 하위클래스로 구현한다.
+- 로또 번호를 생성한다.
 
 ### 5) Game
 
@@ -226,13 +233,13 @@
 
 - 구입한 로또 리스트에 대한 DTO
 
-### 2) TotalResultDTO
+### 2) TotalResultSnapshot
 
-- 전체 당첨 결과에 대한 DTO
+- 전체 당첨 결과에 대한 Snapshot
 
-### 3) ReturnRateDTO
+### 3) LottoSnapshot
 
-- 수익률에 대한 DTO
+- 로또 번호에 대한 Snapshot
 
 ---
 
