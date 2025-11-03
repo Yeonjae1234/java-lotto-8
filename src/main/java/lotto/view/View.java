@@ -69,11 +69,7 @@ public class View {
         for (var lotto : lottos) {
             System.out.println(lotto.numbers());
         }
-
     }
-//
-//    public String printLotto(Lotto lotto) {
-//        String result = "["+String.join(", ",)
-//    }
+
 
 }

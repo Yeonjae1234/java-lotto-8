@@ -1,6 +1,7 @@
 package lotto;
 
 import lotto.domain.Lotto;
+import lotto.domain.Person;
 import lotto.domain.PurchaseAmount;
 import lotto.domain.WinningNumbers;
 import lotto.service.Game;
@@ -26,10 +27,11 @@ public class Controller {
 
     public void run(){
         PurchaseAmount purchaseAmount = makePurchaseAmount();
+        Person person = new Person(purchaseAmount,lottoListGenerator,lottoGenerator);
+        view.printLottoList(person.makeLottoListDTO());
         WinningNumbers winningNumbers = makeBonusNumber(makeWinningNumbers());
-        Game game = new Game(winningNumbers);
-        game.runGame(purchaseAmount,lottoListGenerator,lottoGenerator,winningChecker);
-        game.makeLottoListDTO();
+        Game game = new Game(person,winningNumbers);
+        game.runGame(winningChecker);
         game.makeSnapshot();
     }
 
