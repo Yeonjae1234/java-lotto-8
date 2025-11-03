@@ -16,7 +16,6 @@ public class Person {
     public Person(PurchaseAmount purchaseAmount, LottoListGenerator lottoListGenerator, LottoGenerator lottoGenerator) {
         this.purchaseAmount = purchaseAmount;
         this.lottoList = purchaseAmount.generateLottoList(lottoListGenerator, lottoGenerator);
-
     }
 
     public Map<Rank, Integer> checkTotalResult(WinningChecker winningChecker, WinningNumbers winningNumbers){
@@ -25,5 +24,13 @@ public class Person {
 
     public double calculateReturnRate(Map<Rank, Integer> totalResult, ReturnRateCalculator returnRateCalculator) {
         return purchaseAmount.calculateReturnRate(totalResult, returnRateCalculator);
+    }
+
+    public LottoListDTO makeLottoListDTO(){
+        List<LottoSnapshot> item = new ArrayList<>();
+        for (Lotto lotto : lottoList) {
+            item.add(lotto.makeLottoSnapshot());
+        }
+        return new LottoListDTO(item);
     }
 }

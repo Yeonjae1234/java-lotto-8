@@ -44,5 +44,9 @@ public class Lotto {
         return numbers.contains(bonusNumber);
     }
 
+    public LottoSnapshot makeLottoSnapshot(){
+        return new LottoSnapshot(numbers);
+    }
+
     // TODO: 추가 기능 구현
 }

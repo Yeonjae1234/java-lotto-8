@@ -29,7 +29,8 @@ public class Controller {
         WinningNumbers winningNumbers = makeBonusNumber(makeWinningNumbers());
         Game game = new Game(winningNumbers);
         game.runGame(purchaseAmount,lottoListGenerator,lottoGenerator,winningChecker);
-
+        game.makeLottoListDTO();
+        game.makeSnapshot();
     }
 
     public PurchaseAmount makePurchaseAmount() {

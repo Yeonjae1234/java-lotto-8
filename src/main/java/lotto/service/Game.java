@@ -20,4 +20,12 @@ public class Game {
         double returnRate = person.calculateReturnRate(rankCount, new ReturnRateCalculator());
         totalResult = new TotalResult(rankCount, returnRate);
     }
+
+    public TotalResultSnapshot makeSnapshot(){
+        return totalResult.makeSnapshot();
+    }
+
+    public LottoListDTO makeLottoListDTO(){
+        return person.makeLottoListDTO();
+    }
 }

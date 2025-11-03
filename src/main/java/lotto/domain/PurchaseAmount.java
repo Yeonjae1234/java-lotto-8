@@ -4,7 +4,7 @@ import lotto.service.LottoGenerator;
 import lotto.service.LottoListGenerator;
 import lotto.service.ReturnRateCalculator;
 
-import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 public class PurchaseAmount {
@@ -25,7 +25,7 @@ public class PurchaseAmount {
         }
     }
 
-    public ArrayList<Lotto> generateLottoList(LottoListGenerator lottoListGenerator, LottoGenerator lottoGenerator) {
+    public List<Lotto> generateLottoList(LottoListGenerator lottoListGenerator, LottoGenerator lottoGenerator) {
         return lottoListGenerator.generateLottoList(money, MONEY_UNIT,lottoGenerator);
     }
 
