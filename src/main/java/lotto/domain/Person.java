@@ -1,8 +1,11 @@
 package lotto.domain;
 
+import lotto.service.LottoGenerator;
+import lotto.service.LottoListGenerator;
 import lotto.service.ReturnRateCalculator;
 import lotto.service.WinningChecker;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -10,9 +13,10 @@ public class Person {
     private List<Lotto> lottoList;
     private PurchaseAmount purchaseAmount;
 
-    public Person(List<Lotto> lottoList, PurchaseAmount purchaseAmount) {
-        this.lottoList = lottoList;
+    public Person(PurchaseAmount purchaseAmount, LottoListGenerator lottoListGenerator, LottoGenerator lottoGenerator) {
         this.purchaseAmount = purchaseAmount;
+        this.lottoList = purchaseAmount.generateLottoList(lottoListGenerator, lottoGenerator);
+
     }
 
     public Map<Rank, Integer> checkTotalResult(WinningChecker winningChecker, WinningNumbers winningNumbers){

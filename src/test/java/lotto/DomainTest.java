@@ -1,6 +1,8 @@
 package lotto;
 
 import lotto.domain.*;
+import lotto.service.LottoGenerator;
+import lotto.service.LottoListGenerator;
 import lotto.service.ReturnRateCalculator;
 import lotto.service.WinningChecker;
 import org.junit.jupiter.api.DisplayName;
@@ -55,7 +57,7 @@ public class DomainTest {
     public void person_calculateReturnRate(){
         assertSimpleTest(()->{
             PurchaseAmount purchaseAmount = new PurchaseAmount(8000);
-            Person person = new Person(null, purchaseAmount);
+            Person person = new Person(purchaseAmount, new LottoListGenerator(), new LottoGenerator());
             WinningChecker winningChecker = new WinningChecker();
             winningChecker.totalResult.put(Rank.FIFTH, 1);
             double v = person.calculateReturnRate(winningChecker.totalResult, new ReturnRateCalculator());
