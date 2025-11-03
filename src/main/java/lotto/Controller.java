@@ -32,7 +32,7 @@ public class Controller {
         WinningNumbers winningNumbers = makeBonusNumber(makeWinningNumbers());
         Game game = new Game(person,winningNumbers);
         game.runGame(winningChecker);
-        game.makeSnapshot();
+        view.printTotalResult(game.makeSnapshot());
     }
 
     public PurchaseAmount makePurchaseAmount() {

@@ -56,6 +56,16 @@ public class ViewTest extends NsTest {
         });
     }
 
+    @Test
+    public void printReturnRate(){
+        assertSimpleTest(()->{
+            view.printReturnRate(0.6246);
+            assertThat(output()).contains(
+                    "총 수익률은 62.5%입니다."
+            );
+        });
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});

@@ -19,6 +19,8 @@ public class View {
     public static final String WINNING_NUMBERS_INPUT_MESSAGE = "당첨 번호를 입력해 주세요.";
     public static final String BONUS_NUMBER_INPUT_MESSAGE = "보너스 번호를 입력해 주세요.";
     public static final String LOTTO_COUNT_PRINT_MESSAGE = "개를 구매했습니다.";
+    public static final String RANK_PRINT_FORMAT = "%s - %d개%n";
+    public static final String RETURN_RATE_PRINT_FORMAT = "총 수익률은 %.1f%%입니다.";
 
     public Validator validator;
 
@@ -77,14 +79,20 @@ public class View {
 
     public void printTotalResult(TotalResultSnapshot totalResultSnapshot) {
         Map<Rank, Integer> rankMap = totalResultSnapshot.totalResult();
+        double v = totalResultSnapshot.returnRate();
         printRankCount(rankMap);
+        printReturnRate(v);
     }
 
     public void printRankCount(Map<Rank, Integer> rankMap) {
         Rank[] values = Rank.values();
         for (Rank rank : values) {
-            System.out.printf("%s - %d개%n", rank.printDescription(), rankMap.get(rank));
+            System.out.printf(RANK_PRINT_FORMAT, rank.printDescription(), rankMap.get(rank));
         }
+    }
+
+    public void printReturnRate(double v) {
+        System.out.printf(RETURN_RATE_PRINT_FORMAT, v*100);
     }
 
 
