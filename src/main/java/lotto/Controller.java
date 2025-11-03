@@ -3,20 +3,33 @@ package lotto;
 import lotto.domain.Lotto;
 import lotto.domain.PurchaseAmount;
 import lotto.domain.WinningNumbers;
+import lotto.service.Game;
+import lotto.service.LottoGenerator;
+import lotto.service.LottoListGenerator;
+import lotto.service.WinningChecker;
 import lotto.view.View;
 
 import java.util.ArrayList;
 
 public class Controller {
-    View view;
+    private View view;
+    private LottoListGenerator lottoListGenerator;
+    private LottoGenerator lottoGenerator;
+    private WinningChecker winningChecker;
 
-    public Controller(View view) {
+    public Controller(View view, LottoListGenerator lottoListGenerator, LottoGenerator lottoGenerator, WinningChecker winningChecker) {
         this.view = view;
+        this.lottoListGenerator = lottoListGenerator;
+        this.lottoGenerator = lottoGenerator;
+        this.winningChecker = winningChecker;
     }
 
     public void run(){
         PurchaseAmount purchaseAmount = makePurchaseAmount();
         WinningNumbers winningNumbers = makeBonusNumber(makeWinningNumbers());
+        Game game = new Game(winningNumbers);
+        game.runGame(purchaseAmount,lottoListGenerator,lottoGenerator,winningChecker);
+
     }
 
     public PurchaseAmount makePurchaseAmount() {

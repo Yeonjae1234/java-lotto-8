@@ -10,4 +10,8 @@ public class TotalResult {
         this.totalResult = totalResult;
         this.returnRate = returnRate;
     }
+
+    public TotalResultSnapshot makeSnapshot(){
+        return new TotalResultSnapshot(Map.copyOf(totalResult), returnRate);
+    }
 }

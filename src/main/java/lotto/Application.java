@@ -12,7 +12,7 @@ public class Application {
         // TODO: 프로그램 구현
 
         View view = new View(new Validator());
-        Controller controller = new Controller(view);
+        //Controller controller = new Controller(view);
 //        Lotto winningLotto = controller.makeWinningNumbers();
 //        WinningNumbers winningNumbers = controller.makeBonusNumber(winningLotto);
        // Rank[] totalRank = Rank.values();
