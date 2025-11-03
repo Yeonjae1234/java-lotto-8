@@ -3,12 +3,14 @@ package lotto;
 import lotto.domain.LottoListDTO;
 import lotto.domain.LottoSnapshot;
 import lotto.domain.Person;
+import lotto.domain.Rank;
 import lotto.validator.Validator;
 import lotto.view.View;
 import org.junit.jupiter.api.Test;
 import camp.nextstep.edu.missionutils.test.NsTest;
 
 
+import java.util.EnumMap;
 import java.util.List;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
@@ -32,6 +34,26 @@ public class ViewTest extends NsTest {
             );
         });
 
+    }
+
+    @Test
+    public void printRankCount(){
+        assertSimpleTest(()->{
+            EnumMap<Rank, Integer> rankIntegerEnumMap = new EnumMap<>(Rank.class);
+            rankIntegerEnumMap.put(Rank.FIRST, 0);
+            rankIntegerEnumMap.put(Rank.SECOND, 0);
+            rankIntegerEnumMap.put(Rank.THIRD, 0);
+            rankIntegerEnumMap.put(Rank.FOURTH, 0);
+            rankIntegerEnumMap.put(Rank.FIFTH, 1);
+            view.printRankCount(rankIntegerEnumMap);
+            assertThat(output()).contains(
+                    "3개 일치 (5,000원) - 1개",
+                    "4개 일치 (50,000원) - 0개",
+                    "5개 일치 (1,500,000원) - 0개",
+                    "5개 일치, 보너스 볼 일치 (30,000,000원) - 0개",
+                    "6개 일치 (2,000,000,000원) - 0개"
+            );
+        });
     }
 
     @Override

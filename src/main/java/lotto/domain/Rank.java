@@ -38,4 +38,8 @@ public enum Rank {
         return prize;
     }
 
+    public String printDescription(){
+        return String.format("%s (%,d원)", description, prize);
+    }
+
 }

@@ -2,10 +2,14 @@ package lotto.view;
 
 import lotto.domain.Lotto;
 import lotto.domain.LottoListDTO;
+import lotto.domain.Rank;
+import lotto.domain.TotalResultSnapshot;
 import lotto.validator.Validator;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
+import java.util.Map;
 
 import static camp.nextstep.edu.missionutils.Console.readLine;
 
@@ -68,6 +72,18 @@ public class View {
         System.out.println(lottos.size()+LOTTO_COUNT_PRINT_MESSAGE);
         for (var lotto : lottos) {
             System.out.println(lotto.numbers());
+        }
+    }
+
+    public void printTotalResult(TotalResultSnapshot totalResultSnapshot) {
+        Map<Rank, Integer> rankMap = totalResultSnapshot.totalResult();
+        printRankCount(rankMap);
+    }
+
+    public void printRankCount(Map<Rank, Integer> rankMap) {
+        Rank[] values = Rank.values();
+        for (Rank rank : values) {
+            System.out.printf("%s - %d개%n", rank.printDescription(), rankMap.get(rank));
         }
     }
 
