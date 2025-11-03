@@ -26,18 +26,14 @@ public class DomainTest {
     @DisplayName("Rank.valueOf로 SECOND 찾기")
     @Test
     public void rank_valueOf_SECOND(){
-        assertSimpleTest(()->{
-            assertThat(Rank.valueOf(5, true)).isEqualTo(Rank.SECOND);
-        });
+        assertSimpleTest(()-> assertThat(Rank.valueOf(5, true)).isEqualTo(Rank.SECOND));
 
     }
 
     @DisplayName("Rank.valueOf로 THIRD 찾기")
     @Test
     public void rank_valueOf_THIRD(){
-        assertSimpleTest(()->{
-            assertThat(Rank.valueOf(5, false)).isEqualTo(Rank.THIRD);
-        });
+        assertSimpleTest(()-> assertThat(Rank.valueOf(5, false)).isEqualTo(Rank.THIRD));
 
     }
 

@@ -2,7 +2,6 @@ package lotto;
 
 import lotto.domain.LottoListDTO;
 import lotto.domain.LottoSnapshot;
-import lotto.domain.Person;
 import lotto.domain.Rank;
 import lotto.validator.Validator;
 import lotto.view.View;

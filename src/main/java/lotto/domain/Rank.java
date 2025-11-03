@@ -10,9 +10,9 @@ public enum Rank {
     FIRST(6, DESCRIPTION_FIRST, PRIZE_FIRST),
     ;
 
-    private int matches;
-    private String description;
-    private int prize;
+    private final int matches;
+    private final String description;
+    private final int prize;
 
     Rank(int matches, String description, int prize) {
         this.matches = matches;

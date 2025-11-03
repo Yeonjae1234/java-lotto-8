@@ -1,14 +1,11 @@
 package lotto.view;
 
-import lotto.domain.Lotto;
 import lotto.domain.LottoListDTO;
 import lotto.domain.Rank;
 import lotto.domain.TotalResultSnapshot;
 import lotto.validator.Validator;
 
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
 import java.util.Map;
 
 import static camp.nextstep.edu.missionutils.Console.readLine;
